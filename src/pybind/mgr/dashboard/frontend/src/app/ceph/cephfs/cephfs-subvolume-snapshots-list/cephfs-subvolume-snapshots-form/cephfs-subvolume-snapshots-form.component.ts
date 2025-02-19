@@ -39,7 +39,7 @@ export class CephfsSubvolumeSnapshotsFormComponent extends CdForm implements OnI
     private cephFsSubvolumeService: CephfsSubvolumeService
   ) {
     super();
-    this.resource = $localize`snapshot`;
+    this.resource = '快照';
     this.action = this.actionLabels.CREATE;
   }
 

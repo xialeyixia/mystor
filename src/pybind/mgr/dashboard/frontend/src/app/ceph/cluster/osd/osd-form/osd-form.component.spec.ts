@@ -66,7 +66,7 @@ describe('OsdFormComponent', () => {
         ssd_used: 0,
         nvme_used: 0,
         title: 'Cost/Capacity-optimized',
-        desc: 'All the available HDDs are selected'
+        desc: '选中所有可用的硬盘驱动器。'
       },
       throughput_optimized: {
         name: OsdDeploymentOptions.THROUGHPUT,
@@ -77,7 +77,7 @@ describe('OsdFormComponent', () => {
         ssd_used: 0,
         nvme_used: 0,
         title: 'Throughput-optimized',
-        desc: 'HDDs/SSDs are selected for data devices and SSDs/NVMes for DB/WAL devices'
+        desc: '已选择硬盘驱动器（HDDs）或固态硬盘（SSDs）作为数据设备，选择固态硬盘（SSDs）或非易失性内存棒（NVMes）作为数据库（DB）/ 预写式日志（WAL）设备.'
       },
       iops_optimized: {
         name: OsdDeploymentOptions.IOPS,
@@ -88,7 +88,7 @@ describe('OsdFormComponent', () => {
         ssd_used: 0,
         nvme_used: 0,
         title: 'IOPS-optimized',
-        desc: 'All the available NVMes are selected'
+        desc: '选中所有可用的非易失性内存（NVMes）。'
       }
     },
     recommended_option: OsdDeploymentOptions.COST_CAPACITY

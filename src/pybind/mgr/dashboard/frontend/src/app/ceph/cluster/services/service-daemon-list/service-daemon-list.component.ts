@@ -110,28 +110,28 @@ export class ServiceDaemonListComponent implements OnInit, OnChanges, AfterViewI
         permission: 'update',
         icon: Icons.start,
         click: () => this.daemonAction('start'),
-        name: this.actionLabels.START,
+        name: '开始',
         disable: () => this.actionDisabled('start')
       },
       {
         permission: 'update',
         icon: Icons.stop,
         click: () => this.daemonAction('stop'),
-        name: this.actionLabels.STOP,
+        name: '停止',
         disable: () => this.actionDisabled('stop')
       },
       {
         permission: 'update',
         icon: Icons.restart,
         click: () => this.daemonAction('restart'),
-        name: this.actionLabels.RESTART,
+        name: '重启',
         disable: () => this.actionDisabled('restart')
       },
       {
         permission: 'update',
         icon: Icons.deploy,
         click: () => this.daemonAction('redeploy'),
-        name: this.actionLabels.REDEPLOY,
+        name: '重新部署',
         disable: () => this.actionDisabled('redeploy')
       }
     ];
@@ -143,7 +143,7 @@ export class ServiceDaemonListComponent implements OnInit, OnChanges, AfterViewI
         filterable: true
       },
       {
-        name: $localize`Daemon name`,
+        name: '守护进程',
         prop: 'daemon_name',
         flexGrow: 1,
         filterable: true
@@ -168,20 +168,20 @@ export class ServiceDaemonListComponent implements OnInit, OnChanges, AfterViewI
         flexGrow: 1
       },
       {
-        name: $localize`CPU Usage`,
+        name: 'CPU使用率',
         prop: 'cpu_percentage',
         flexGrow: 1,
         cellTemplate: this.cpuTpl
       },
       {
-        name: $localize`Memory Usage`,
+        name: '内存使用率',
         prop: 'memory_usage',
         flexGrow: 1,
         pipe: this.dimlessBinary,
         cellClass: 'text-right'
       },
       {
-        name: $localize`Daemon Events`,
+        name: '守护进程事件',
         prop: 'events',
         flexGrow: 2,
         cellTemplate: this.listTpl

@@ -20,7 +20,8 @@ export class MonitorComponent {
   constructor(private monitorService: MonitorService) {
     this.inQuorum = {
       columns: [
-        { prop: 'name', name: $localize`Name`, cellTransformation: CellTemplate.routerLink },
+        // { prop: 'name', name: $localize`Name`, cellTransformation: CellTemplate.routerLink },
+        { prop: 'name', name: $localize`Name` },
         { prop: 'rank', name: $localize`Rank` },
         { prop: 'public_addr', name: $localize`Public Address` },
         {
@@ -44,7 +45,8 @@ export class MonitorComponent {
 
     this.notInQuorum = {
       columns: [
-        { prop: 'name', name: $localize`Name`, cellTransformation: CellTemplate.routerLink },
+        // { prop: 'name', name: $localize`Name`, cellTransformation: CellTemplate.routerLink },
+        { prop: 'name', name: $localize`Name` },
         { prop: 'rank', name: $localize`Rank` },
         { prop: 'public_addr', name: $localize`Public Address` }
       ]

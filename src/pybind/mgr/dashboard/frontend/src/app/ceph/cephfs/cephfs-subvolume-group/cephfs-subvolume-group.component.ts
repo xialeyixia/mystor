@@ -73,7 +73,7 @@ export class CephfsSubvolumeGroupComponent implements OnInit, OnChanges {
         cellTransformation: CellTemplate.bold
       },
       {
-        name: $localize`Data Pool`,
+        name: '数据池',
         prop: 'info.data_pool',
         flexGrow: 0.7,
         cellTransformation: CellTemplate.badge,

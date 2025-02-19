@@ -164,7 +164,7 @@ export class PoolListComponent extends ListWithDetails implements OnInit {
       },
       {
         prop: 'stats.rd_bytes.rates',
-        name: $localize`Read bytes`,
+        name: '读取（字节）',
         comparator: (_valueA: any, _valueB: any, rowA: Pool, rowB: Pool) =>
           compare('stats.rd_bytes.latest', rowA, rowB),
         cellTransformation: CellTemplate.sparkline,
@@ -172,7 +172,7 @@ export class PoolListComponent extends ListWithDetails implements OnInit {
       },
       {
         prop: 'stats.wr_bytes.rates',
-        name: $localize`Write bytes`,
+        name: '写（字节）',
         comparator: (_valueA: any, _valueB: any, rowA: Pool, rowB: Pool) =>
           compare('stats.wr_bytes.latest', rowA, rowB),
         cellTransformation: CellTemplate.sparkline,
@@ -180,14 +180,14 @@ export class PoolListComponent extends ListWithDetails implements OnInit {
       },
       {
         prop: 'stats.rd.rate',
-        name: $localize`Read ops`,
+        name: '读（OPS）',
         flexGrow: 1,
         pipe: this.dimlessPipe,
         cellTransformation: CellTemplate.perSecond
       },
       {
         prop: 'stats.wr.rate',
-        name: $localize`Write ops`,
+        name: '写（OPS）',
         flexGrow: 1,
         pipe: this.dimlessPipe,
         cellTransformation: CellTemplate.perSecond

@@ -101,12 +101,12 @@ export class OsdRecvSpeedModalComponent implements OnInit {
       return callbackFn(priority);
     }
 
-    if (Object.entries(configOptionValues).length === 4) {
-      this.osdRecvSpeedForm.controls.customizePriority.setValue(true);
-      return callbackFn(
-        Object({ name: 'custom', text: $localize`Custom`, values: configOptionValues })
-      );
-    }
+    // if (Object.entries(configOptionValues).length === 4) {
+    //   this.osdRecvSpeedForm.controls.customizePriority.setValue(true);
+    //   return callbackFn(
+    //     Object({ name: 'custom', text: $localize`Custom`, values: configOptionValues })
+    //   );
+    // }
 
     return callbackFn(this.priorities[0]);
   }

@@ -99,12 +99,8 @@ export class PrometheusService {
   }
 
   ifSettingConfigured(url: string, fn: (value?: string) => void, elseFn?: () => void): void {
-    // const setting = this.settings[url];
-    // console.log(setting, url, 133535)
-    let setting = ""
-     setting = "http://node2:9095"
+    const setting = this.settings[url];
     if (setting === undefined) {
-      console.log(111111)
       this.http.get(url).subscribe(
         (data: any) => {
           this.settings[url] = this.getSettingsValue(data);
@@ -117,7 +113,6 @@ export class PrometheusService {
         }
       );
     } else if (setting !== '') {
-      console.log(222222)
       fn(setting);
     } else {
       if (elseFn) {
@@ -151,7 +146,6 @@ export class PrometheusService {
         for (const queryName in queries) {
           if (queries.hasOwnProperty(queryName)) {
             const query = queries[queryName];
-            console.log(queryName, 787878787878)
             this.getPrometheusData({
               params: encodeURIComponent(query),
               start: selectedTime['start'],

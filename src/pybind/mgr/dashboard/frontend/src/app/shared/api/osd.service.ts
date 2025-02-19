@@ -45,7 +45,7 @@ export class OsdService {
       },
       {
         name: 'default',
-        text: $localize`Default`,
+        text: '中',
         values: {
           osd_max_backfills: 1,
           osd_recovery_max_active: 3,

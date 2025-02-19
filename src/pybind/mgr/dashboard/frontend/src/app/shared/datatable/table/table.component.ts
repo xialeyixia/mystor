@@ -112,6 +112,9 @@ export class TableComponent implements AfterContentChecked, OnInit, OnChanges, O
   @Input()
   hasDetails = false;
 
+  @Input()
+  messages? = {};
+
   /**
    * Auto reload time in ms - per default every 5s
    * You can set it to 0, undefined or false to disable the auto reload feature in order to

@@ -71,7 +71,7 @@ export class CephfsSnapshotscheduleFormComponent extends CdForm implements OnIni
     private subvolumeService: CephfsSubvolumeService
   ) {
     super();
-    this.resource = $localize`Snapshot schedule`;
+    this.resource = '快照调度器';
 
     const currentDatetime = new Date();
     this.minDate = {

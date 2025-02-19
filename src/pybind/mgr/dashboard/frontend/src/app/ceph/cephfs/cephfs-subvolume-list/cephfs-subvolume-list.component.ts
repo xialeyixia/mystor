@@ -104,7 +104,7 @@ export class CephfsSubvolumeListComponent extends CdForm implements OnInit, OnCh
         cellTemplate: this.nameTpl
       },
       {
-        name: $localize`Data Pool`,
+        name: '数据池',
         prop: 'info.data_pool',
         flexGrow: 0.7,
         cellTransformation: CellTemplate.badge,

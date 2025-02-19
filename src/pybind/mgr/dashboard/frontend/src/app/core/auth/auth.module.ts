@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgbNavModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPipeFunctionModule } from 'ngx-pipe-function';
 
-import { ActionLabels, URLVerbs } from '~/app/shared/constants/app.constants';
+import {  URLVerbs } from '~/app/shared/constants/app.constants';
 import { SharedModule } from '~/app/shared/shared.module';
 import { LoginPasswordFormComponent } from './login-password-form/login-password-form.component';
 import { LoginComponent } from './login/login.component';
@@ -47,35 +47,35 @@ const routes: Routes = [
   { path: '', redirectTo: 'users', pathMatch: 'full' },
   {
     path: 'users',
-    data: { breadcrumbs: 'Users' },
+    data: { breadcrumbs: '用户' },
     children: [
       { path: '', component: UserListComponent },
       {
         path: URLVerbs.CREATE,
         component: UserFormComponent,
-        data: { breadcrumbs: ActionLabels.CREATE }
+        data: { breadcrumbs: '创建' }
       },
       {
         path: `${URLVerbs.EDIT}/:username`,
         component: UserFormComponent,
-        data: { breadcrumbs: ActionLabels.EDIT }
+        data: { breadcrumbs: '编辑' }
       }
     ]
   },
   {
     path: 'roles',
-    data: { breadcrumbs: 'Roles' },
+    data: { breadcrumbs: '角色' },
     children: [
       { path: '', component: RoleListComponent },
       {
         path: URLVerbs.CREATE,
         component: RoleFormComponent,
-        data: { breadcrumbs: ActionLabels.CREATE }
+        data: { breadcrumbs: '创建' }
       },
       {
         path: `${URLVerbs.EDIT}/:name`,
         component: RoleFormComponent,
-        data: { breadcrumbs: ActionLabels.EDIT }
+        data: { breadcrumbs: '编辑' }
       }
     ]
   }

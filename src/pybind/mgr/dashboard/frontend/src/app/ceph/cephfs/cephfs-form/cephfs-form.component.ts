@@ -70,7 +70,7 @@ export class CephfsVolumeFormComponent extends CdForm implements OnInit {
     super();
     this.editing = this.router.url.startsWith(`/cephfs/${URLVerbs.EDIT}`);
     this.action = this.editing ? this.actionLabels.EDIT : this.actionLabels.CREATE;
-    this.resource = $localize`File System`;
+    this.resource = '文件系统';
     this.hosts = {
       options: [],
       messages: new SelectMessages({

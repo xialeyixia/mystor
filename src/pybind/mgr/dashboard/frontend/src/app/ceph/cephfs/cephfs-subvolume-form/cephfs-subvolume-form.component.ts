@@ -59,7 +59,7 @@ export class CephfsSubvolumeFormComponent extends CdForm implements OnInit {
     private octalToHumanReadable: OctalToHumanReadablePipe
   ) {
     super();
-    this.resource = $localize`Subvolume`;
+    this.resource ='子卷';
   }
 
   ngOnInit(): void {
@@ -78,7 +78,7 @@ export class CephfsSubvolumeFormComponent extends CdForm implements OnInit {
       },
       {
         prop: 'write',
-        name: $localize`Write`,
+        name: '写',
         flexGrow: 0.5,
         cellClass: 'text-center'
       },

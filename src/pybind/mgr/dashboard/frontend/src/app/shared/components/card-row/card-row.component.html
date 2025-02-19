@@ -3,7 +3,6 @@
   <div class="d-flex pl-1 pb-2 pt-2">
     <div class="ms-4 me-auto">
       <a [routerLink]="link" *ngIf="link && total > 0; else noLinkTitle" [ngPlural]="total" i18n>
-        {{ total }}
         <ng-template ngPluralCase="=0">{{ title }}</ng-template>
         <ng-template ngPluralCase="=1">{{ title }}</ng-template>
         <ng-template ngPluralCase="other">{{ title }}</ng-template>
@@ -123,7 +122,6 @@
 
 <ng-template #noLinkTitle>
   <span *ngIf="total || total === 0" [ngPlural]="total">
-    {{ total }}
     <ng-template ngPluralCase="=0">{{ title }}</ng-template>
     <ng-template ngPluralCase="=1">{{ title }}</ng-template>
     <ng-template ngPluralCase="other">{{ title }}</ng-template>

@@ -1,251 +1,259 @@
-<div class="cd-col-form"
-     *cdFormLoading="loading">
+<div class="cd-col-form" *cdFormLoading="loading">
   <ng-container [ngSwitch]="step">
     <!-- Configuration step -->
     <div *ngSwitchCase="1">
-      <form name="form"
-            #formDir="ngForm"
-            [formGroup]="configForm"
-            novalidate>
+      <form name="form" #formDir="ngForm" [formGroup]="configForm" novalidate>
         <div class="card">
-          <div class="card-header"
-               i18n>Step {{ step }} of 2: Telemetry report configuration</div>
+          <div class="card-header" i18n>步骤 {{ step }} ：遥测报告配置</div>
           <div class="card-body">
-            <p i18n>The telemetry module sends anonymous data about this Ceph cluster back to the Ceph developers
-              to help understand how Ceph is used and what problems users may be experiencing.<br/>
-              This data is visualized on <a href="https://telemetry-public.ceph.com/">public dashboards</a>
-              that allow the community to quickly see summary statistics on how many clusters are reporting,
-              their total capacity and OSD count, and version distribution trends.<br/><br/>
-              The data being reported does <b>not</b> contain any sensitive data like pool names, object names, object contents,
-              hostnames, or device serial numbers. It contains counters and statistics on how the cluster has been
-              deployed, the version of Ceph, the distribution of the hosts and other parameters which help the project
-              to gain a better understanding of the way Ceph is used. The data is sent secured to {{ sendToUrl }} and
-              {{ sendToDeviceUrl }} (device report).</p>
+            <p>
+              遥测模块会发送有关此Ceph集群的匿名数据回Ceph开发人员，以帮助了解Ceph的使用情况以及用户可能遇到的问题。<br />
+              这些数据在
+              <a href="https://telemetry-public.ceph.com/">公共仪表板</a>
+              上可视化，允许社区快速查看有多少集群在报告、它们的总容量和OSD数量以及版本分布趋势的摘要统计信息。<br /><br />
+              报告的数据<b>不</b>包含任何敏感数据，如池名称、对象名称、对象内容、主机名或设备序列号。它包含有关集群如何部署的计数器和统计信息、Ceph的版本、主机的分布以及其他参数，这些参数有助于项目更好地了解Ceph的使用方式。数据通过安全方式发送到
+              {{ sendToUrl }} 和{{ sendToDeviceUrl }} （设备报告）.
+            </p>
             <div *ngIf="moduleEnabled">
-              The plugin is already <b>enabled</b>. Click <b>Deactivate</b> to disable it.&nbsp;
-              <button type="button"
-                      class="btn btn-light"
-                      (click)="disableModule('The Telemetry module has been disabled successfully.')"
-                      i18n>Deactivate</button>
+              该插件已 <b>启用</b>。请点击 <b>停用</b> 可将其禁用。&nbsp;
+              <button
+                type="button"
+                class="btn btn-light"
+                (click)="disableModule('The Telemetry module has been disabled successfully.')"
+              >
+                停用
+              </button>
             </div>
-            <legend i18n>Channels</legend>
-            <p i18n>The telemetry report is broken down into several "channels", each with a different type of information that can
-              be configured below.</p>
+            <legend>通道</legend>
+            <p>
+              遥测报告被细分为多个“通道”，每个通道包含不同类型的信息，这些信息可在下方进行配置。
+            </p>
 
             <!-- Channel basic -->
             <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="channel_basic">
+              <label class="cd-col-form-label" for="channel_basic">
                 <ng-container i18n>Basic</ng-container>
                 <cd-helper>
                   <ng-container i18n>Includes basic information about the cluster:</ng-container>
                   <ul>
                     <li i18n>Capacity of the cluster</li>
-                    <li i18n>Number of monitors, managers, OSDs, MDSs, object gateways, or other daemons</li>
-                    <li i18n>Software version currently being used</li>
-                    <li i18n>Number and types of RADOS pools and CephFS file systems</li>
-                    <li i18n>Names of configuration options that have been changed from their default (but not their values)</li>
+                    <li>监视器、管理器、OSD、MDS、对象网关或其他守护进程的数量</li>
+                    <li>当前正在使用的软件版本</li>
+                    <li>RADOS 存储池和 CephFS 文件系统的数量及类型</li>
+                    <li>已从默认值修改过的配置选项名称（但不包括其具体修改后的值）</li>
                   </ul>
                 </cd-helper>
               </label>
               <div class="cd-col-form-input">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox"
-                         class="custom-control-input"
-                         id="channel_basic"
-                         formControlName="channel_basic">
-                  <label class="custom-control-label"
-                         for="channel_basic"></label>
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="channel_basic"
+                    formControlName="channel_basic"
+                  />
+                  <label class="custom-control-label" for="channel_basic"></label>
                 </div>
               </div>
             </div>
 
             <!-- Channel crash -->
             <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="channel_crash">
-                <ng-container i18n>Crash</ng-container>
+              <label class="cd-col-form-label" for="channel_crash">
+                <ng-container>崩溃</ng-container>
                 <cd-helper>
-                  <ng-container i18n>Includes information about daemon crashes:</ng-container>
+                  <ng-container>包含有关守护进程崩溃的信息：</ng-container>
                   <ul>
-                    <li i18n>Type of daemon</li>
-                    <li i18n>Version of the daemon</li>
-                    <li i18n>Operating system (OS distribution, kernel version)</li>
-                    <li i18n>Stack trace identifying where in the Ceph code the crash occurred</li>
+                    <li>守护进程类型</li>
+                    <li>守护进程版本</li>
+                    <li>操作系统（操作系统发行版、内核版本）</li>
+                    <li>堆栈跟踪信息，用于确定代码中发生崩溃的位置。</li>
                   </ul>
                 </cd-helper>
               </label>
               <div class="cd-col-form-input">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox"
-                         class="custom-control-input"
-                         id="channel_crash"
-                         formControlName="channel_crash">
-                  <label class="custom-control-label"
-                         for="channel_crash"></label>
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="channel_crash"
+                    formControlName="channel_crash"
+                  />
+                  <label class="custom-control-label" for="channel_crash"></label>
                 </div>
               </div>
             </div>
 
             <!-- Channel device -->
             <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="channel_device">
-                <ng-container i18n>Device</ng-container>
-                <cd-helper i18n-html
-                           html="Includes information about device metrics like anonymized SMART metrics.">
+              <label class="cd-col-form-label" for="channel_device">
+                <ng-container>设备</ng-container>
+                <cd-helper html="包含有关设备指标的信息，如经过匿名处理的 S.M.A.R.T. 指标。">
                 </cd-helper>
               </label>
               <div class="cd-col-form-input">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox"
-                         class="custom-control-input"
-                         id="channel_device"
-                         formControlName="channel_device">
-                  <label class="custom-control-label"
-                         for="channel_device"></label>
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="channel_device"
+                    formControlName="channel_device"
+                  />
+                  <label class="custom-control-label" for="channel_device"></label>
                 </div>
               </div>
             </div>
 
             <!-- Channel ident -->
             <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="channel_ident">
-                <ng-container i18n>Ident</ng-container>
+              <label class="cd-col-form-label" for="channel_ident">
+                <ng-container i18n>身份标识</ng-container>
                 <cd-helper>
-                  <ng-container i18n>Includes user-provided identifying information about the cluster:</ng-container>
+                  <ng-container>包含用户提供的有关集群的标识信息：</ng-container>
                   <ul>
-                    <li>Cluster description</li>
-                    <li>Contact email address</li>
+                    <li>集群描述</li>
+                    <li>联系电子邮件地址</li>
                   </ul>
                 </cd-helper>
               </label>
               <div class="cd-col-form-input">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox"
-                         class="custom-control-input"
-                         id="channel_ident"
-                         formControlName="channel_ident"
-                         (click)="toggleIdent()">
-                  <label class="custom-control-label"
-                         for="channel_ident"></label>
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="channel_ident"
+                    formControlName="channel_ident"
+                    (click)="toggleIdent()"
+                  />
+                  <label class="custom-control-label" for="channel_ident"></label>
                 </div>
               </div>
             </div>
 
             <!-- Channel perf -->
             <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="channel_perf">
-                <ng-container i18n>Perf</ng-container>
+              <label class="cd-col-form-label" for="channel_perf">
+                <ng-container>性能</ng-container>
                 <cd-helper>
-                  <ng-container i18n>Includes various performance metrics of a cluster.</ng-container>
+                  <ng-container>包含集群的各种性能指标。</ng-container>
                 </cd-helper>
               </label>
               <div class="cd-col-form-input">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox"
-                         class="custom-control-input"
-                         id="channel_perf"
-                         formControlName="channel_perf">
-                  <label class="custom-control-label"
-                         for="channel_perf"></label>
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="channel_perf"
+                    formControlName="channel_perf"
+                  />
+                  <label class="custom-control-label" for="channel_perf"></label>
                 </div>
               </div>
             </div>
 
             <ng-container *ngIf="showContactInfo">
-            <legend>
-              <ng-container i18n>Contact Information</ng-container>
-              <cd-helper i18n>Submitting any contact information is completely optional and disabled by default.</cd-helper>
-            </legend>
-            <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="contact"
-                     i18n>Contact</label>
-              <div class="cd-col-form-input">
-                <input id="contact"
-                       class="form-control"
-                       type="text"
-                       formControlName="contact"
-                       placeholder="Example User <user@example.com>">
+              <legend>
+                <ng-container i18n>Contact Information</ng-container>
+                <cd-helper i18n
+                  >Submitting any contact information is completely optional and disabled by
+                  default.</cd-helper
+                >
+              </legend>
+              <div class="form-group row">
+                <label class="cd-col-form-label" for="contact" i18n>Contact</label>
+                <div class="cd-col-form-input">
+                  <input
+                    id="contact"
+                    class="form-control"
+                    type="text"
+                    formControlName="contact"
+                    placeholder="Example User <user@example.com>"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="description"
-                     i18n>Description</label>
-              <div class="cd-col-form-input">
-                <input id="description"
-                       class="form-control"
-                       type="text"
-                       formControlName="description"
-                       placeholder="My first Ceph cluster"
-                       i18n-placeholder>
+              <div class="form-group row">
+                <label class="cd-col-form-label" for="description" i18n>Description</label>
+                <div class="cd-col-form-input">
+                  <input
+                    id="description"
+                    class="form-control"
+                    type="text"
+                    formControlName="description"
+                    placeholder="My first Ceph cluster"
+                    i18n-placeholder
+                  />
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="organization"
-                     i18n>Organization</label>
-              <div class="cd-col-form-input">
-                <input id="organization"
-                       class="form-control"
-                       type="text"
-                       formControlName="organization"
-                       placeholder="Organization name"
-                       i18n-placeholder>
+              <div class="form-group row">
+                <label class="cd-col-form-label" for="organization" i18n>Organization</label>
+                <div class="cd-col-form-input">
+                  <input
+                    id="organization"
+                    class="form-control"
+                    type="text"
+                    formControlName="organization"
+                    placeholder="Organization name"
+                    i18n-placeholder
+                  />
+                </div>
               </div>
-            </div>
-          </ng-container>
+            </ng-container>
             <legend i18n>Advanced Settings</legend>
             <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="interval">
-                <ng-container i18n>Interval</ng-container>
-                <cd-helper i18n>The module compiles and sends a new report every 24 hours by default. You can
-                  adjust this interval by setting a different number of hours.</cd-helper>
+              <label class="cd-col-form-label" for="interval">
+                <ng-container>间隔</ng-container>
+                <cd-helper
+                  >默认情况下，该模块每 24
+                  小时编译并发送一份新报告。你可以通过设置不同的小时数来调整此时间间隔。</cd-helper
+                >
               </label>
               <div class="cd-col-form-input">
-                <input id="interval"
-                       class="form-control"
-                       type="number"
-                       formControlName="interval"
-                       min="8">
-                <span class="invalid-feedback"
-                      *ngIf="configForm.showError('interval', formDir, 'min')"
-                      i18n>The entered value is too low! It must be greater or equal to 8.</span>
+                <input
+                  id="interval"
+                  class="form-control"
+                  type="number"
+                  formControlName="interval"
+                  min="8"
+                />
+                <span
+                  class="invalid-feedback"
+                  *ngIf="configForm.showError('interval', formDir, 'min')"
+                  >输入的值太小了！该值必须大于或等于 8。</span
+                >
               </div>
             </div>
             <div class="form-group row">
-              <label class="cd-col-form-label"
-                     for="proxy">
-                <ng-container i18n>Proxy</ng-container>
+              <label class="cd-col-form-label" for="proxy">
+                <ng-container>代理</ng-container>
                 <cd-helper>
-                  <p i18n>If the cluster cannot directly connect to the configured telemetry endpoint
-                    (default telemetry.ceph.com), you can configure a HTTP/HTTPS proxy server by e.g. adding
-                    https://10.0.0.1:8080</p>
-                  <p i18n>You can also include a user:pass if needed e.g. https://ceph:telemetry@10.0.0.1:8080</p>
+                  <p>
+                    如果集群无法直接连接到已配置的遥测端点（默认是telemetry.ceph.com），你可以通过添加如
+                    `https://10.0.0.1:8080`这样的信息来配置一个 HTTP/HTTPS 代理服务器。
+                  </p>
+                  <p>
+                    如果需要，你还可以包含用户名和密码，例如： https://ceph:telemetry@10.0.0.1:8080
+                  </p>
                 </cd-helper>
               </label>
               <div class="cd-col-form-input">
-                <input id="proxy"
-                       class="form-control"
-                       type="text"
-                       formControlName="proxy"
-                       placeholder="https://10.0.0.1:8080">
+                <input
+                  id="proxy"
+                  class="form-control"
+                  type="text"
+                  formControlName="proxy"
+                  placeholder="https://10.0.0.1:8080"
+                />
               </div>
             </div>
             <br />
-            <p i18n><b>Note:</b> By clicking 'Next' you will first see a preview of the report content before you
-              can activate the automatic submission of your data.</p>
+            <p>
+              <b>注意：</b
+              >点击“下一步”后，在你激活数据自动提交功能之前，你将首先看到报告内容的预览。
+            </p>
           </div>
           <div class="card-footer">
             <div class="button-group text-right">
-              <button type="button"
-                      class="btn btn-light"
-                      (click)="next()">
+              <button type="button" class="btn btn-light" (click)="next()">
                 <ng-container>{{ actionLabels.NEXT }}</ng-container>
               </button>
             </div>
@@ -256,59 +264,54 @@
 
     <!-- Preview step -->
     <div *ngSwitchCase="2">
-      <form name="previewForm"
-            #frm="ngForm"
-            [formGroup]="previewForm"
-            novalidate>
+      <form name="previewForm" #frm="ngForm" [formGroup]="previewForm" novalidate>
         <div class="card">
-          <div class="card-header"
-               i18n>Step {{ step }} of 2: Telemetry report preview</div>
+          <div class="card-header" i18n>步骤 {{ step }} : 遥测报告预览</div>
           <div class="card-body">
             <!-- Telemetry report ID -->
             <div class="form-group row">
-              <label i18n
-                     for="reportId"
-                     class="cd-col-form-label">Report ID
-              <cd-helper i18n-html
-                         html="A randomized UUID to identify a particular cluster over the course of several telemetry reports.">
-              </cd-helper>
+              <label for="reportId" class="cd-col-form-label"
+                >报告 ID
+                <cd-helper
+                  html="一个随机生成的通用唯一识别码（UUID），用于在多份遥测报告中识别特定的集群。 "
+                >
+                </cd-helper>
               </label>
               <div class="cd-col-form-input">
-                <input class="form-control"
-                       type="text"
-                       id="reportId"
-                       formControlName="reportId"
-                       readonly>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="reportId"
+                  formControlName="reportId"
+                  readonly
+                />
               </div>
             </div>
 
             <!-- Telemetry report -->
             <div class="form-group row">
-              <label i18n
-                     for="report"
-                     class="cd-col-form-label">Report preview
-                <cd-helper i18n-html
-                           html="The actual telemetry data that will be submitted."><em>Note: Please select 'Download' to
-                                   view the full report, including metrics from the perf channel.</em>
+              <label for="report" class="cd-col-form-label"
+                >报告预览
+                <cd-helper html="即将提交的实际遥测数据。"
+                  ><em>注意：请选择 “下载” 以查看完整报告，包括来自性能监控通道的指标数据</em>
                 </cd-helper>
               </label>
               <div class="cd-col-form-input">
-                <textarea class="form-control"
-                          id="report"
-                          formControlName="report"
-                          rows="15"
-                          readonly></textarea>
+                <textarea
+                  class="form-control"
+                  id="report"
+                  formControlName="report"
+                  rows="15"
+                  readonly
+                ></textarea>
               </div>
             </div>
             <div class="form-group row">
               <div class="cd-col-form-offset">
-                <div class="btn-group"
-                     role="group">
-                  <cd-download-button [objectItem]="report"
-                                      fileName="telemetry_report">
+                <div class="btn-group" role="group">
+                  <cd-download-button [objectItem]="report" fileName="telemetry_report">
                   </cd-download-button>
-                  <cd-copy-2-clipboard-button source="report">
-                  </cd-copy-2-clipboard-button>
+                  <cd-copy-2-clipboard-button source="report"> </cd-copy-2-clipboard-button>
                 </div>
               </div>
             </div>
@@ -317,25 +320,32 @@
             <div class="form-group row">
               <div class="cd-col-form-offset">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox"
-                         class="custom-control-input"
-                         id="licenseAgrmt"
-                         name="licenseAgrmt"
-                         formControlName="licenseAgrmt">
-                  <label class="custom-control-label"
-                         for="licenseAgrmt"
-                         i18n>I agree to my telemetry data being submitted under the <a href="https://cdla.io/sharing-1-0/">Community Data License Agreement - Sharing - Version 1.0</a></label>
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="licenseAgrmt"
+                    name="licenseAgrmt"
+                    formControlName="licenseAgrmt"
+                  />
+                  <!-- TODO:是否需要隐藏这种协议 -->
+                  <label class="custom-control-label" for="licenseAgrmt"
+                    >同意遥测数据按照
+                    <a href="https://cdla.io/sharing-1-0/">《社区数据许可协议 - 共享 - 1.0 版》</a
+                    >提交</label
+                  >
                 </div>
               </div>
             </div>
           </div>
           <div class="card-footer">
             <div class="button-group text-right">
-              <cd-form-button-panel (submitActionEvent)="onSubmit()"
-                                    (backActionEvent)="back()"
-                                    [form]="previewForm"
-                                    [submitText]="actionLabels.UPDATE"
-                                    [cancelText]="actionLabels.BACK"></cd-form-button-panel>
+              <cd-form-button-panel
+                (submitActionEvent)="onSubmit()"
+                (backActionEvent)="back()"
+                [form]="previewForm"
+                [submitText]="actionLabels.UPDATE"
+                [cancelText]="actionLabels.BACK"
+              ></cd-form-button-panel>
             </div>
           </div>
         </div>

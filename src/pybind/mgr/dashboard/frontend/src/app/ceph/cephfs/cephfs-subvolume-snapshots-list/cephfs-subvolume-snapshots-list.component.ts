@@ -85,7 +85,7 @@ export class CephfsSubvolumeSnapshotsListComponent implements OnInit, OnChanges 
         pipe: this.cdDatePipe
       },
       {
-        name: $localize`Pending Clones`,
+        name: '待处理的克隆任务',
         prop: 'info.has_pending_clones',
         flexGrow: 0.5,
         cellTransformation: CellTemplate.badge,
@@ -256,7 +256,7 @@ export class CephfsSubvolumeSnapshotsListComponent implements OnInit, OnChanges 
       return { value: group, text: group === '' ? '_nogroup' : group };
     });
     this.modalService.show(FormModalComponent, {
-      titleText: $localize`Create clone`,
+      titleText: '创建克隆',
       fields: [
         {
           type: 'text',
@@ -282,13 +282,13 @@ export class CephfsSubvolumeSnapshotsListComponent implements OnInit, OnChanges 
           type: 'select',
           name: 'groupName',
           value: this.activeGroupName,
-          label: $localize`Group Name`,
+          label: '组名称',
           typeConfig: {
             options: allGroups
           }
         }
       ],
-      submitButtonText: $localize`Create Clone`,
+      submitButtonText: '创建克隆',
       onSubmit: (value: any) => {
         this.cephfsSubvolumeService
           .createSnapshotClone(

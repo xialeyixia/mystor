@@ -7,7 +7,7 @@ import { TreeModule } from '@circlon/angular-tree-component';
 import { NgbNavModule, NgbPopoverModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPipeFunctionModule } from 'ngx-pipe-function';
 
-import { ActionLabels, URLVerbs } from '~/app/shared/constants/app.constants';
+import {  URLVerbs } from '~/app/shared/constants/app.constants';
 import { FeatureTogglesGuardService } from '~/app/shared/services/feature-toggles-guard.service';
 import { ModuleStatusGuardService } from '~/app/shared/services/module-status-guard.service';
 import { SharedModule } from '~/app/shared/shared.module';
@@ -119,7 +119,7 @@ const routes: Routes = [
       {
         path: 'performance',
         component: RbdPerformanceComponent,
-        data: { breadcrumbs: '整体行能' }
+        data: { breadcrumbs: '整体性能' }
       },
       {
         path: URLVerbs.CREATE,
@@ -182,18 +182,18 @@ const routes: Routes = [
       { path: 'overview', component: IscsiComponent, data: { breadcrumbs: '总览' } },
       {
         path: 'targets',
-        data: { breadcrumbs: 'Targets' },
+        data: { breadcrumbs: '目标' },
         children: [
           { path: '', component: IscsiTargetListComponent },
           {
             path: URLVerbs.CREATE,
             component: IscsiTargetFormComponent,
-            data: { breadcrumbs: ActionLabels.CREATE }
+            data: { breadcrumbs: '创建' }
           },
           {
             path: `${URLVerbs.EDIT}/:target_iqn`,
             component: IscsiTargetFormComponent,
-            data: { breadcrumbs: ActionLabels.EDIT }
+            data: { breadcrumbs: '编辑' }
           }
         ]
       }

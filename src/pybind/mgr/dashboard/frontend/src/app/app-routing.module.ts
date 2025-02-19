@@ -155,7 +155,7 @@ const routes: Routes = [
       {
         path: 'monitor',
         component: MonitorComponent,
-        data: { breadcrumbs: '集群/监视器' }
+        data: { breadcrumbs: '集群/MON' }
       },
       {
         path: 'services',
@@ -201,13 +201,13 @@ const routes: Routes = [
       },
       {
         path: 'osd',
-        data: { breadcrumbs: '集群/OSDs' },
+        data: { breadcrumbs: '集群/OSD' },
         children: [
           { path: '', component: OsdListComponent },
           {
             path: URLVerbs.CREATE,
             component: OsdFormComponent,
-            data: { breadcrumbs: ActionLabels.CREATE }
+            data: { breadcrumbs: '创建'}
           }
         ]
       },
@@ -226,7 +226,7 @@ const routes: Routes = [
       {
         path: 'crush-map',
         component: CrushmapComponent,
-        data: { breadcrumbs: '集群/CRUSH map' }
+        data: { breadcrumbs: '集群/拓扑结构' }
       },
       {
         path: 'logs',
@@ -236,7 +236,7 @@ const routes: Routes = [
       {
         path: 'telemetry',
         component: TelemetryComponent,
-        data: { breadcrumbs: 'Telemetry configuration' }
+        data: { breadcrumbs: '遥测配置' }
       },
       {
         path: 'monitoring',
@@ -388,19 +388,19 @@ const routes: Routes = [
       // User/Role Management
       {
         path: 'user-management',
-        data: { breadcrumbs: 'User management', path: null },
+        data: { breadcrumbs: '用户管理', path: null },
         loadChildren: () => import('./core/auth/auth.module').then((m) => m.RoutedAuthModule)
       },
       // User Profile
       {
         path: 'user-profile',
-        data: { breadcrumbs: 'User profile', path: null },
+        data: { breadcrumbs: '用户信息', path: null },
         children: [
           {
             path: URLVerbs.EDIT,
             component: UserPasswordFormComponent,
             canActivate: [NoSsoGuardService],
-            data: { breadcrumbs: ActionLabels.EDIT }
+            data: { breadcrumbs: '编辑' }
           }
         ]
       },
@@ -423,12 +423,12 @@ const routes: Routes = [
           {
             path: URLVerbs.CREATE,
             component: NfsFormComponent,
-            data: { breadcrumbs: ActionLabels.CREATE }
+            data: { breadcrumbs: '创建' }
           },
           {
             path: `${URLVerbs.EDIT}/:cluster_id/:export_id`,
             component: NfsFormComponent,
-            data: { breadcrumbs: ActionLabels.EDIT }
+            data: { breadcrumbs:'编辑' }
           }
         ]
       }

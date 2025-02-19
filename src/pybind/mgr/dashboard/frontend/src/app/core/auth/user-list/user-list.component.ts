@@ -112,7 +112,7 @@ export class UserListComponent implements OnInit {
         cellTransformation: CellTemplate.checkIcon
       },
       {
-        name: $localize`Password expires`,
+        name: '密码有效期',
         prop: 'pwdExpirationDate',
         flexGrow: 1,
         cellTemplate: this.durationTpl

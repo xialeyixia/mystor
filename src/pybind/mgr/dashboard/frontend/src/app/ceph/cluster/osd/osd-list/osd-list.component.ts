@@ -326,22 +326,22 @@ export class OsdListComponent extends ListWithDetails implements OnInit {
       { prop: 'stats.usage', name: $localize`Usage`, cellTemplate: this.osdUsageTpl },
       {
         prop: 'stats_history.out_bytes',
-        name: $localize`Read bytes`,
+        name: '读 / bytes',
         cellTransformation: CellTemplate.sparkline
       },
       {
         prop: 'stats_history.in_bytes',
-        name: $localize`Write bytes`,
+        name: '写 / bytes',
         cellTransformation: CellTemplate.sparkline
       },
       {
         prop: 'stats.op_r',
-        name: $localize`Read ops`,
+        name: `读 / ops`,
         cellTransformation: CellTemplate.perSecond
       },
       {
         prop: 'stats.op_w',
-        name: $localize`Write ops`,
+        name: `写 / ops`,
         cellTransformation: CellTemplate.perSecond
       }
     ];

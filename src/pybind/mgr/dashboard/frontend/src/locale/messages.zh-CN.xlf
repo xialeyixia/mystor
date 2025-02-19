@@ -1170,7 +1170,7 @@
       </trans-unit>
       <trans-unit id="2691935247101074756" datatype="html">
         <source>NFS export</source>
-        <target>NFS export</target>
+        <target>NFS 导出</target>
       </trans-unit>
       <trans-unit id="b3f6ba7fe84d6508705cdfe234f0fcc8ff85c9cf" datatype="html">
         <source>Storage Backend</source>
@@ -1237,11 +1237,15 @@
         <target>移除所有守护进程</target>
       </trans-unit>
       <trans-unit id="151c80ea931037cd92e854442927f8a0f6ae7795" datatype="html">
-        <source>-- No data pools available --</source>
+        <source>
+        -- No data pools available --
+        </source>
         <target>-- 没有可用的数据存储池 --</target>
       </trans-unit>
       <trans-unit id="b6fee356d1db954255a56d8169405a89595246b9" datatype="html">
-        <source>-- Select the storage backend --</source>
+        <source>
+          -- Select the storage backend --
+        </source>
         <target>-- 请选择存储后端 --</target>
       </trans-unit>
       <trans-unit id="76d67035c3ab3d8e56f725859f820f03fda41cfc" datatype="html">
@@ -1336,7 +1340,7 @@
       </trans-unit>
       <trans-unit id="6d2c39708a32910f89701dd7e1cfb9ec1c195768" datatype="html">
         <source>Pseudo</source>
-        <target>伪</target>
+        <target>Pseudo</target>
       </trans-unit>
       <trans-unit id="1f8be2ae25947bec0b84c2338201580ea053f34e" datatype="html">
         <source>The position that this 
@@ -1392,7 +1396,7 @@
       </trans-unit>
       <trans-unit id="3907766170797643122" datatype="html">
         <source>Pseudo</source>
-        <target>伪</target>
+        <target>Pseudo</target>
       </trans-unit>
       <trans-unit id="2944102521023817891" datatype="html">
         <source>Cluster</source>
@@ -1586,7 +1590,7 @@
       </trans-unit>
       <trans-unit id="8343007008325027187" datatype="html">
         <source>Evict</source>
-        <target>驱逐</target>
+        <target>移除</target>
       </trans-unit>
       <trans-unit id="408179081163888126" datatype="html">
         <source>Flatten</source>
@@ -3855,7 +3859,7 @@
       <trans-unit id="6364513948635353490" datatype="html">
         <source>Evicted client '
           <x id="PH" equiv-text="clientId"/>'</source>
-        <target>驱逐的客户端 '
+        <target>移除的客户端 '
           <x id="PH" equiv-text="clientId"/>'</target>
       </trans-unit>
       <trans-unit id="9610487cbeb5796d34d8601b5ac0c0a65f9e1d19" datatype="html">
@@ -5042,7 +5046,7 @@
       </trans-unit>
       <trans-unit id="03cc5b14b0a20d075e9009ff021f4f1660ba348a" datatype="html">
         <source>Data Pool</source>
-        <target>数据存储池</target>
+        <target>数据池</target>
       </trans-unit>
       <trans-unit id="1b051734b0ee9021991c91b3ed4e81c244322462" datatype="html">
         <source>Created</source>
@@ -5512,11 +5516,11 @@
       </trans-unit>
       <trans-unit id="1277565045885499475" datatype="html">
         <source>BPS Limit</source>
-        <target>BPS 限制</target>
+        <target>带宽限制</target>
       </trans-unit>
       <trans-unit id="2289210323987692906" datatype="html">
         <source>The desired limit of IO bytes per second.</source>
-        <target>每秒IO字节的期望限制。</target>
+        <target>读写带宽的期望限制。</target>
       </trans-unit>
       <trans-unit id="2753589939879013605" datatype="html">
         <source>IOPS Limit</source>
@@ -5532,7 +5536,7 @@
       </trans-unit>
       <trans-unit id="8071352270469595250" datatype="html">
         <source>The desired limit of read bytes per second.</source>
-        <target>每秒读取字节的期望限制。</target>
+        <target>读带宽的期望限制。</target>
       </trans-unit>
       <trans-unit id="1632513758247239690" datatype="html">
         <source>Read IOPS Limit</source>
@@ -5548,7 +5552,7 @@
       </trans-unit>
       <trans-unit id="5911437671369366025" datatype="html">
         <source>The desired limit of write bytes per second.</source>
-        <target>每秒写入字节的期望限制。</target>
+        <target>写入带宽的期望限制。</target>
       </trans-unit>
       <trans-unit id="2947346368707443195" datatype="html">
         <source>Write IOPS Limit</source>
@@ -5560,11 +5564,11 @@
       </trans-unit>
       <trans-unit id="4559424229658244943" datatype="html">
         <source>BPS Burst</source>
-        <target>BPS 突发</target>
+        <target>带宽突发</target>
       </trans-unit>
       <trans-unit id="3454058701331860330" datatype="html">
         <source>The desired burst limit of IO bytes.</source>
-        <target>IO字节的期望突发限制。</target>
+        <target>允许短时间内超过带宽的限制的最大值。</target>
       </trans-unit>
       <trans-unit id="1171005761926448741" datatype="html">
         <source>IOPS Burst</source>
@@ -5572,7 +5576,7 @@
       </trans-unit>
       <trans-unit id="4939532784700485729" datatype="html">
         <source>The desired burst limit of IO operations.</source>
-        <target>IO操作的期望突发限制。</target>
+        <target>允许短时间内超过IOPS限制的最大值。</target>
       </trans-unit>
       <trans-unit id="6273492199526646930" datatype="html">
         <source>Read BPS Burst</source>
@@ -5580,7 +5584,7 @@
       </trans-unit>
       <trans-unit id="3105467595643777520" datatype="html">
         <source>The desired burst limit of read bytes.</source>
-        <target>读取字节的期望突发限制。</target>
+        <target>允许短时间内超过读带宽限制的最大值。</target>
       </trans-unit>
       <trans-unit id="2170715106679765467" datatype="html">
         <source>Read IOPS Burst</source>
@@ -5588,7 +5592,7 @@
       </trans-unit>
       <trans-unit id="6234106755510510672" datatype="html">
         <source>The desired burst limit of read operations.</source>
-        <target>读取操作的期望突发限制。</target>
+        <target>允许短时间内超过读IOPS限制的最大值。</target>
       </trans-unit>
       <trans-unit id="228509518172572466" datatype="html">
         <source>Write BPS Burst</source>
@@ -5596,7 +5600,7 @@
       </trans-unit>
       <trans-unit id="7803279807796571240" datatype="html">
         <source>The desired burst limit of write bytes.</source>
-        <target>写入字节的期望突发限制。</target>
+        <target>允许短时间内超过写带宽限制的最大值。</target>
       </trans-unit>
       <trans-unit id="9125474584914848055" datatype="html">
         <source>Write IOPS Burst</source>
@@ -5604,7 +5608,7 @@
       </trans-unit>
       <trans-unit id="5839129348567326667" datatype="html">
         <source>The desired burst limit of write operations.</source>
-        <target>写操作的期望突发限制。</target>
+        <target>允许短时间内超过写IOPS限制的最大值。</target>
       </trans-unit>
       <trans-unit id="5833626790712999947" datatype="html">
         <source>Issue</source>
@@ -6136,11 +6140,11 @@
       </trans-unit>
       <trans-unit id="9055665654201606988" datatype="html">
         <source>Data Protection</source>
-        <target>数据保护</target>
+        <target>冗余策略</target>
       </trans-unit>
       <trans-unit id="6658000829978978023" datatype="html">
         <source>Applications</source>
-        <target>应用程序</target>
+        <target>功能</target>
       </trans-unit>
       <trans-unit id="5232365108332422324" datatype="html">
         <source>PG Status</source>

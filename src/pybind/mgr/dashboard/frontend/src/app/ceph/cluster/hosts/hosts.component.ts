@@ -204,7 +204,7 @@ export class HostsComponent extends ListWithDetails implements OnDestroy, OnInit
         cellTemplate: this.hostNameTpl
       },
       {
-        name: $localize`Service Instances`,
+        name: '服务实例',
         prop: 'service_instances',
         flexGrow: 1.5,
         cellTemplate: this.servicesTpl
@@ -236,13 +236,13 @@ export class HostsComponent extends ListWithDetails implements OnDestroy, OnInit
         flexGrow: 1
       },
       {
-        name: $localize`CPUs`,
+        name: 'CPU数量',
         prop: 'cpu_count',
         cellTemplate: this.hostMetricTmpl,
         flexGrow: 0.3
       },
       {
-        name: $localize`Cores`,
+        name: '核数',
         prop: 'cpu_cores',
         cellTemplate: this.hostMetricTmpl,
         flexGrow: 0.3
@@ -260,13 +260,13 @@ export class HostsComponent extends ListWithDetails implements OnDestroy, OnInit
         flexGrow: 0.5
       },
       {
-        name: $localize`HDDs`,
+        name: '硬盘数量',
         prop: 'hdd_count',
         cellTemplate: this.hostMetricTmpl,
         flexGrow: 0.3
       },
       {
-        name: $localize`Flash`,
+        name: '缓存盘',
         prop: 'flash_count',
         headerTemplate: this.flashTmpl,
         cellTemplate: this.hostMetricTmpl,

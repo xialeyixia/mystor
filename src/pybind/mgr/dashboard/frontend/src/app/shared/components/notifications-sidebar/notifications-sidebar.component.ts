@@ -81,7 +81,6 @@ export class NotificationsSidebarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.last_task = window.localStorage.getItem('last_task');
-
     const permissions = this.authStorageService.getPermissions();
     if (permissions.prometheus.read && permissions.configOpt.read) {
       this.triggerPrometheusAlerts();
@@ -93,7 +92,6 @@ export class NotificationsSidebarComponent implements OnInit, OnDestroy {
         }, 5000);
       });
     }
-
     this.subs.add(
       this.notificationService.data$.subscribe((notifications: CdNotification[]) => {
         this.notifications = _.orderBy(notifications, ['timestamp'], ['desc']);

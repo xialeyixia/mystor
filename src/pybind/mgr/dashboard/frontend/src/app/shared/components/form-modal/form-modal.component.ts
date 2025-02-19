@@ -94,7 +94,7 @@ export class FormModalComponent implements OnInit {
       return $localize`This field is required.`;
     }
     if (error === 'pattern') {
-      return $localize`Size must be a number or in a valid format. eg: 5 GiB`;
+      return '大小必须是一个数字或采用有效格式。例如：5 GiB。';
     }
     return $localize`An error occurred.`;
   }

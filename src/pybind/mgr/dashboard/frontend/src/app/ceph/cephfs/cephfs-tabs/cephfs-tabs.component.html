@@ -7,24 +7,19 @@
     cdStatefulTab="cephfs-tabs"
   >
     <ng-container ngbNavItem="details">
-      <a
-        ngbNavLink
-        i18n>Details</a>
+      <a ngbNavLink i18n>Details</a>
       <ng-template ngbNavContent>
         <cd-cephfs-detail [data]="details"> </cd-cephfs-detail>
       </ng-template>
     </ng-container>
     <ng-container ngbNavItem="directories">
-      <a ngbNavLink
-         i18n>Directories</a>
+      <a ngbNavLink i18n>Directories</a>
       <ng-template ngbNavContent>
         <cd-cephfs-directories [id]="id"></cd-cephfs-directories>
       </ng-template>
     </ng-container>
     <ng-container ngbNavItem="subvolumes">
-      <a
-      ngbNavLink
-      i18n>Subvolumes</a>
+      <a ngbNavLink>子卷</a>
       <ng-template ngbNavContent>
         <cd-cephfs-subvolume-list
           [fsName]="selection.mdsmap.fs_name"
@@ -33,29 +28,21 @@
       </ng-template>
     </ng-container>
     <ng-container ngbNavItem="subvolume-groups">
-      <a
-      ngbNavLink
-      i18n>Subvolume groups</a>
+      <a ngbNavLink>子卷组</a>
       <ng-template ngbNavContent>
-        <cd-cephfs-subvolume-group
-        [fsName]="selection.mdsmap.fs_name"
-        [pools]="details.pools">
+        <cd-cephfs-subvolume-group [fsName]="selection.mdsmap.fs_name" [pools]="details.pools">
         </cd-cephfs-subvolume-group>
       </ng-template>
     </ng-container>
     <ng-container ngbNavItem="snapshots">
-      <a
-      ngbNavLink
-      i18n>Snapshots</a>
+      <a ngbNavLink i18n>Snapshots</a>
       <ng-template ngbNavContent>
         <cd-cephfs-subvolume-snapshots-list [fsName]="selection.mdsmap.fs_name">
         </cd-cephfs-subvolume-snapshots-list>
       </ng-template>
     </ng-container>
     <ng-container ngbNavItem="snapshot-schedules">
-      <a
-      ngbNavLink
-      i18n>Snapshot schedules</a>
+      <a ngbNavLink>快照调度器</a>
       <ng-template ngbNavContent>
         <cd-cephfs-snapshotschedule-list
           [fsName]="selection.mdsmap.fs_name"
@@ -69,17 +56,12 @@
         <span class="badge badge-pill badge-tab ms-1">{{ clients.data.length }}</span>
       </a>
       <ng-template ngbNavContent>
-        <cd-cephfs-clients
-        [id]="id"
-        [clients]="clients"
-        (triggerApiUpdate)="refresh()">
+        <cd-cephfs-clients [id]="id" [clients]="clients" (triggerApiUpdate)="refresh()">
         </cd-cephfs-clients>
       </ng-template>
     </ng-container>
     <ng-container ngbNavItem="performance-details">
-      <a
-      ngbNavLink
-      i18n>Performance Details</a>
+      <a ngbNavLink i18n>Performance Details</a>
       <ng-template ngbNavContent>
         <cd-grafana
           i18n-title
